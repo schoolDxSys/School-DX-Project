@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "231013297663",
+    "project_id": "school-d-x-sys-iryhwo",
+    "storage_bucket": "school-d-x-sys-iryhwo.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:231013297663:android:840e4ed2a96f3213da8bca",
+        "android_client_info": {
+          "package_name": "com.mycompany.schooldxsys"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDv5b8_nO7qRZ9CCzsCjK57i7D5Uvp6klA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
