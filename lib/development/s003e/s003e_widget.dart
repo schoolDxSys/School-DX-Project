@@ -40,18 +40,19 @@ class _S003eWidgetState extends State<S003eWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         body: Column(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Align(
-              alignment: AlignmentDirectional(0.0, 0.0),
+            Align(
+              alignment: const AlignmentDirectional(0.0, 0.0),
               child: Padding(
                 padding:
-                    EdgeInsetsDirectional.fromSTEB(150.0, 301.0, 150.0, 0.0),
+                    const EdgeInsetsDirectional.fromSTEB(150.0, 301.0, 150.0, 0.0),
                 child: FaIcon(
                   FontAwesomeIcons.exclamationTriangle,
-                  color: Color(0x80555555),
+                  color: FlutterFlowTheme.of(context).primaryText,
                   size: 80.0,
                 ),
               ),
@@ -97,17 +98,17 @@ class _S003eWidgetState extends State<S003eWidget> {
                     iconAlignment: IconAlignment.start,
                     iconPadding:
                         const EdgeInsetsDirectional.fromSTEB(20.0, 12.9, 20.0, 5.96),
-                    color: Colors.white,
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Karma',
-                          color: const Color(0x7E000000),
+                          color: FlutterFlowTheme.of(context).primaryText,
                           fontSize: 20.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
                         ),
                     elevation: 0.0,
-                    borderSide: const BorderSide(
-                      color: Colors.black,
+                    borderSide: BorderSide(
+                      color: FlutterFlowTheme.of(context).primaryText,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),

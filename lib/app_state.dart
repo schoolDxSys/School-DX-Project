@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
+import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -20,9 +23,14 @@ class FFAppState extends ChangeNotifier {
     notifyListeners();
   }
 
-  String _studentName = '';
-  String get studentName => _studentName;
-  set studentName(String value) {
-    _studentName = value;
+  UserStruct _user =
+      UserStruct.fromSerializableMap(jsonDecode('{\"device_id\":\"{}\"}'));
+  UserStruct get user => _user;
+  set user(UserStruct value) {
+    _user = value;
+  }
+
+  void updateUserStruct(Function(UserStruct) updateFn) {
+    updateFn(_user);
   }
 }

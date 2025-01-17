@@ -74,12 +74,12 @@ class _S006WidgetState extends State<S006Widget> {
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Karma',
-                        color: Colors.black,
+                        color: FlutterFlowTheme.of(context).primaryText,
                         letterSpacing: 0.0,
                       ),
                   elevation: 0.0,
-                  borderSide: const BorderSide(
-                    color: Colors.black,
+                  borderSide: BorderSide(
+                    color: FlutterFlowTheme.of(context).primaryText,
                   ),
                   borderRadius: BorderRadius.circular(8.0),
                 ),

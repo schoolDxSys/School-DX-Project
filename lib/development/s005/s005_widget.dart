@@ -1,9 +1,8 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 's005_model.dart';
 export 's005_model.dart';
@@ -11,10 +10,14 @@ export 's005_model.dart';
 class S005Widget extends StatefulWidget {
   const S005Widget({
     super.key,
-    String? qrdata,
-  }) : qrdata = qrdata ?? 'null';
+    required this.qrSecret,
+    required this.subjectName,
+    required this.subjectTime,
+  });
 
-  final String qrdata;
+  final String? qrSecret;
+  final String? subjectName;
+  final String? subjectTime;
 
   @override
   State<S005Widget> createState() => _S005WidgetState();
@@ -40,6 +43,8 @@ class _S005WidgetState extends State<S005Widget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -47,7 +52,7 @@ class _S005WidgetState extends State<S005Widget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: const Color(0xfffffffffff),
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         body: Align(
           alignment: const AlignmentDirectional(0.0, 0.0),
           child: Column(
@@ -75,7 +80,10 @@ class _S005WidgetState extends State<S005Widget> {
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 141.0, 0.0, 0.0),
                   child: Text(
-                    '教科名',
+                    valueOrDefault<String>(
+                      widget.subjectName,
+                      'Nan',
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Karma',
                           fontSize: 40.0,
@@ -87,7 +95,10 @@ class _S005WidgetState extends State<S005Widget> {
               Align(
                 alignment: const AlignmentDirectional(0.0, -1.0),
                 child: Text(
-                  widget.qrdata,
+                  valueOrDefault<String>(
+                    widget.subjectTime,
+                    'Nan',
+                  ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Karma',
                         fontSize: 40.0,
@@ -98,8 +109,7 @@ class _S005WidgetState extends State<S005Widget> {
               Align(
                 alignment: const AlignmentDirectional(0.0, -1.0),
                 child: Padding(
-                  padding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 61.0, 0.0, 367.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 61.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -109,6 +119,14 @@ class _S005WidgetState extends State<S005Widget> {
                             const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
+                            await AttendRecord.collection
+                                .doc()
+                                .set(createAttendRecordData(
+                                  userId: FFAppState().user.userId,
+                                  serial: widget.qrSecret,
+                                  date: getCurrentTimestamp,
+                                ));
+
                             context.pushNamed('S006');
                           },
                           text: 'はい',
@@ -119,18 +137,20 @@ class _S005WidgetState extends State<S005Widget> {
                                 16.0, 0.0, 16.0, 0.0),
                             iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: Colors.white,
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
                                   fontFamily: 'Plus Jakarta Sans',
-                                  color: Colors.black,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
                                   fontSize: 20.0,
                                   letterSpacing: 0.0,
                                 ),
                             elevation: 0.0,
-                            borderSide: const BorderSide(
-                              color: Colors.black,
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).primaryText,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
@@ -151,18 +171,20 @@ class _S005WidgetState extends State<S005Widget> {
                                 16.0, 0.0, 16.0, 0.0),
                             iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: Colors.white,
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
                                   fontFamily: 'Plus Jakarta Sans',
-                                  color: Colors.black,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
                                   fontSize: 20.0,
                                   letterSpacing: 0.0,
                                 ),
                             elevation: 0.0,
-                            borderSide: const BorderSide(
-                              color: Colors.black,
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).primaryText,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),

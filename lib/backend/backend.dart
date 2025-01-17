@@ -2,11 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'schema/util/firestore_util.dart';
 
-import 'schema/try_test_record.dart';
-import 'schema/subjects_record.dart';
-import 'schema/attendances_record.dart';
-import 'schema/students_record.dart';
-import 'schema/qr_sessions_record.dart';
+import 'schema/user_record.dart';
+import 'schema/subject_record.dart';
+import 'schema/attend_record.dart';
+import 'schema/onetime_record.dart';
+import 'schema/subject_list_record.dart';
+import 'schema/subject_time_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -15,192 +16,230 @@ export 'schema/index.dart';
 export 'schema/util/firestore_util.dart';
 export 'schema/util/schema_util.dart';
 
-export 'schema/try_test_record.dart';
-export 'schema/subjects_record.dart';
-export 'schema/attendances_record.dart';
-export 'schema/students_record.dart';
-export 'schema/qr_sessions_record.dart';
+export 'schema/user_record.dart';
+export 'schema/subject_record.dart';
+export 'schema/attend_record.dart';
+export 'schema/onetime_record.dart';
+export 'schema/subject_list_record.dart';
+export 'schema/subject_time_record.dart';
 
-/// Functions to query TryTestRecords (as a Stream and as a Future).
-Future<int> queryTryTestRecordCount({
+/// Functions to query UserRecords (as a Stream and as a Future).
+Future<int> queryUserRecordCount({
   Query Function(Query)? queryBuilder,
   int limit = -1,
 }) =>
     queryCollectionCount(
-      TryTestRecord.collection,
+      UserRecord.collection,
       queryBuilder: queryBuilder,
       limit: limit,
     );
 
-Stream<List<TryTestRecord>> queryTryTestRecord({
+Stream<List<UserRecord>> queryUserRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollection(
-      TryTestRecord.collection,
-      TryTestRecord.fromSnapshot,
+      UserRecord.collection,
+      UserRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<List<TryTestRecord>> queryTryTestRecordOnce({
+Future<List<UserRecord>> queryUserRecordOnce({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollectionOnce(
-      TryTestRecord.collection,
-      TryTestRecord.fromSnapshot,
+      UserRecord.collection,
+      UserRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-/// Functions to query SubjectsRecords (as a Stream and as a Future).
-Future<int> querySubjectsRecordCount({
+/// Functions to query SubjectRecords (as a Stream and as a Future).
+Future<int> querySubjectRecordCount({
   Query Function(Query)? queryBuilder,
   int limit = -1,
 }) =>
     queryCollectionCount(
-      SubjectsRecord.collection,
+      SubjectRecord.collection,
       queryBuilder: queryBuilder,
       limit: limit,
     );
 
-Stream<List<SubjectsRecord>> querySubjectsRecord({
+Stream<List<SubjectRecord>> querySubjectRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollection(
-      SubjectsRecord.collection,
-      SubjectsRecord.fromSnapshot,
+      SubjectRecord.collection,
+      SubjectRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<List<SubjectsRecord>> querySubjectsRecordOnce({
+Future<List<SubjectRecord>> querySubjectRecordOnce({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollectionOnce(
-      SubjectsRecord.collection,
-      SubjectsRecord.fromSnapshot,
+      SubjectRecord.collection,
+      SubjectRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-/// Functions to query AttendancesRecords (as a Stream and as a Future).
-Future<int> queryAttendancesRecordCount({
+/// Functions to query AttendRecords (as a Stream and as a Future).
+Future<int> queryAttendRecordCount({
   Query Function(Query)? queryBuilder,
   int limit = -1,
 }) =>
     queryCollectionCount(
-      AttendancesRecord.collection,
+      AttendRecord.collection,
       queryBuilder: queryBuilder,
       limit: limit,
     );
 
-Stream<List<AttendancesRecord>> queryAttendancesRecord({
+Stream<List<AttendRecord>> queryAttendRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollection(
-      AttendancesRecord.collection,
-      AttendancesRecord.fromSnapshot,
+      AttendRecord.collection,
+      AttendRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<List<AttendancesRecord>> queryAttendancesRecordOnce({
+Future<List<AttendRecord>> queryAttendRecordOnce({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollectionOnce(
-      AttendancesRecord.collection,
-      AttendancesRecord.fromSnapshot,
+      AttendRecord.collection,
+      AttendRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-/// Functions to query StudentsRecords (as a Stream and as a Future).
-Future<int> queryStudentsRecordCount({
+/// Functions to query OnetimeRecords (as a Stream and as a Future).
+Future<int> queryOnetimeRecordCount({
   Query Function(Query)? queryBuilder,
   int limit = -1,
 }) =>
     queryCollectionCount(
-      StudentsRecord.collection,
+      OnetimeRecord.collection,
       queryBuilder: queryBuilder,
       limit: limit,
     );
 
-Stream<List<StudentsRecord>> queryStudentsRecord({
+Stream<List<OnetimeRecord>> queryOnetimeRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollection(
-      StudentsRecord.collection,
-      StudentsRecord.fromSnapshot,
+      OnetimeRecord.collection,
+      OnetimeRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<List<StudentsRecord>> queryStudentsRecordOnce({
+Future<List<OnetimeRecord>> queryOnetimeRecordOnce({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollectionOnce(
-      StudentsRecord.collection,
-      StudentsRecord.fromSnapshot,
+      OnetimeRecord.collection,
+      OnetimeRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-/// Functions to query QrSessionsRecords (as a Stream and as a Future).
-Future<int> queryQrSessionsRecordCount({
+/// Functions to query SubjectListRecords (as a Stream and as a Future).
+Future<int> querySubjectListRecordCount({
   Query Function(Query)? queryBuilder,
   int limit = -1,
 }) =>
     queryCollectionCount(
-      QrSessionsRecord.collection,
+      SubjectListRecord.collection,
       queryBuilder: queryBuilder,
       limit: limit,
     );
 
-Stream<List<QrSessionsRecord>> queryQrSessionsRecord({
+Stream<List<SubjectListRecord>> querySubjectListRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollection(
-      QrSessionsRecord.collection,
-      QrSessionsRecord.fromSnapshot,
+      SubjectListRecord.collection,
+      SubjectListRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<List<QrSessionsRecord>> queryQrSessionsRecordOnce({
+Future<List<SubjectListRecord>> querySubjectListRecordOnce({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollectionOnce(
-      QrSessionsRecord.collection,
-      QrSessionsRecord.fromSnapshot,
+      SubjectListRecord.collection,
+      SubjectListRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query SubjectTimeRecords (as a Stream and as a Future).
+Future<int> querySubjectTimeRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      SubjectTimeRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<SubjectTimeRecord>> querySubjectTimeRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      SubjectTimeRecord.collection,
+      SubjectTimeRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<SubjectTimeRecord>> querySubjectTimeRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      SubjectTimeRecord.collection,
+      SubjectTimeRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
