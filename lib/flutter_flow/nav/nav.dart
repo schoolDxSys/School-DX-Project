@@ -101,7 +101,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'T003',
           path: '/t003',
-          builder: (context, params) => const T003Widget(),
+          builder: (context, params) => T003Widget(
+            collageName: params.getParam(
+              'collageName',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: 'T002',

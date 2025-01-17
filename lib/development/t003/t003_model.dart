@@ -7,10 +7,6 @@ import 'package:flutter/material.dart';
 class T003Model extends FlutterFlowModel<T003Widget> {
   ///  State fields for stateful widgets in this page.
 
-  // Stores action output result for [Firestore Query - Query a collection] action in T003 widget.
-  List<SubjectListRecord>? subjects;
-  // Stores action output result for [Firestore Query - Query a collection] action in T003 widget.
-  SubjectTimeRecord? subjectTimes;
   // State field(s) for DropDown widget.
   String? dropDownValue1;
   FormFieldController<String>? dropDownValueController1;

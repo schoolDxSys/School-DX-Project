@@ -69,19 +69,7 @@ class _S003WidgetState extends State<S003Widget> {
 
         return;
       } else {
-        context.pushNamed(
-          'errror',
-          queryParameters: {
-            'errorTitle': serializeParam(
-              '情報の取得に失敗しました',
-              ParamType.String,
-            ),
-            'errorMessage': serializeParam(
-              '接続を確認してもう一度お試しください',
-              ParamType.String,
-            ),
-          }.withoutNulls,
-        );
+        context.pushNamed('S003e');
 
         return;
       }

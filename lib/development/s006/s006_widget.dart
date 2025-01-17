@@ -62,7 +62,7 @@ class _S006WidgetState extends State<S006Widget> {
               padding: const EdgeInsetsDirectional.fromSTEB(0.0, 251.0, 0.0, 0.0),
               child: FFButtonWidget(
                 onPressed: () async {
-                  context.pushNamed('S002');
+                  context.goNamed('S002');
                 },
                 text: 'ホーム',
                 options: FFButtonOptions(

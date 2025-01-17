@@ -114,7 +114,7 @@ class _T001WidgetState extends State<T001Widget> {
                     alignment: const AlignmentDirectional(0.0, -1.0),
                     child: Text(
                       dateTimeFormat(
-                        "EEEEdMMMM",
+                        "MMMMd日 EEEE",
                         getCurrentTimestamp,
                         locale: FFLocalizations.of(context).languageCode,
                       ),
@@ -149,7 +149,15 @@ class _T001WidgetState extends State<T001Widget> {
                         const EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        context.pushNamed('T003');
+                        context.pushNamed(
+                          'T003',
+                          queryParameters: {
+                            'collageName': serializeParam(
+                              '',
+                              ParamType.String,
+                            ),
+                          }.withoutNulls,
+                        );
                       },
                       text: '科目選択',
                       icon: const Icon(

@@ -33,4 +33,10 @@ class FFAppState extends ChangeNotifier {
   void updateUserStruct(Function(UserStruct) updateFn) {
     updateFn(_user);
   }
+
+  bool _isQrCreate = true;
+  bool get isQrCreate => _isQrCreate;
+  set isQrCreate(bool value) {
+    _isQrCreate = value;
+  }
 }

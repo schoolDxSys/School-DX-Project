@@ -127,7 +127,7 @@ class _S005WidgetState extends State<S005Widget> {
                                   date: getCurrentTimestamp,
                                 ));
 
-                            context.pushNamed('S006');
+                            context.goNamed('S006');
                           },
                           text: 'はい',
                           options: FFButtonOptions(
