@@ -10,7 +10,7 @@ Future initFirebase() async {
             projectId: "school-d-x-sys-iryhwo",
             storageBucket: "school-d-x-sys-iryhwo.firebasestorage.app",
             messagingSenderId: "231013297663",
-            appId: "1:231013297663:web:40fe5a65176b5834da8bca"));
+            appId: "1:231013297663:web:44611c0ae0bea9f3da8bca"));
   } else {
     await Firebase.initializeApp();
   }

@@ -8,6 +8,8 @@ class S001Model extends FlutterFlowModel<S001Widget> {
 
   String errorMessage = ' ';
 
+  bool hideError = true;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Custom Action - getDeviceId] action in S001 widget.

@@ -302,7 +302,7 @@ class _S001WidgetState extends State<S001Widget> {
                 color: FlutterFlowTheme.of(context).primaryText,
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 37.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(1.0, 37.0, 1.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     var shouldSetState = false;
@@ -368,31 +368,17 @@ class _S001WidgetState extends State<S001Widget> {
                             if (shouldSetState) safeSetState(() {});
                             return;
                           }
-                        } else {
-                          context.goNamed(
-                            'errror',
-                            queryParameters: {
-                              'errorTitle': serializeParam(
-                                'データベース内にエラーが発生しました',
-                                ParamType.String,
-                              ),
-                              'hideButton': serializeParam(
-                                true,
-                                ParamType.bool,
-                              ),
-                              'errorMessage': serializeParam(
-                                '学生課またはシステム管理者に報告してください',
-                                ParamType.String,
-                              ),
-                            }.withoutNulls,
-                          );
-
-                          if (shouldSetState) safeSetState(() {});
-                          return;
                         }
+                      } else {
+                        _model.errorMessage = 'ログイン情報が異なります。';
+                        _model.hideError = false;
+                        safeSetState(() {});
+                        if (shouldSetState) safeSetState(() {});
+                        return;
                       }
                     }
                     _model.errorMessage = 'ログイン情報が異なります。';
+                    _model.hideError = false;
                     safeSetState(() {});
                     if (shouldSetState) safeSetState(() {});
                   },
@@ -418,14 +404,44 @@ class _S001WidgetState extends State<S001Widget> {
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 29.0, 0.0, 0.0),
-                child: Text(
-                  _model.errorMessage,
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'RocknRoll One',
-                        color: FlutterFlowTheme.of(context).error,
-                        fontSize: 24.0,
-                        letterSpacing: 0.0,
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Align(
+                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      child: Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 4.5, 0.0, 0.0),
+                        child: Icon(
+                          Icons.info,
+                          color: FlutterFlowTheme.of(context).error,
+                          size: _model.hideError ? 0.0 : 24.0,
+                        ),
                       ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                      child: Text(
+                        _model.errorMessage,
+                        textAlign: TextAlign.center,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'RocknRoll One',
+                              color: FlutterFlowTheme.of(context).error,
+                              fontSize: 24.0,
+                              letterSpacing: 0.0,
+                            ),
+                      ),
+                    ),
+                    Container(
+                      width: 24.0,
+                      height: 24.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
